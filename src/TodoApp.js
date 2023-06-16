@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import analytics from '@vercel/analytics';
+
 import ReactDOM from 'react-dom';
+
 import "./styles.css";
-
-
-useEffect(() => {
-  analytics();
-}, []);
-
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
   const [taskTitle, setTaskTitle] = useState("");
