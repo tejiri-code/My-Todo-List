@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import "./styles.css";
+import { analytics } from '@analytics/vercel';
 
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
@@ -47,11 +48,22 @@ const TodoApp = () => {
     // Clear task input fields
     setTaskTitle("");
     setTaskDescription("");
+
+    // Track the event
+    analytics.track('Task Added', {
+      taskTitle: newTask.title,
+      taskDescription: newTask.description,
+    });
   };
 
   // Handle task deletion
   const handleDelete = (taskId) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+
+    // Track the event
+    analytics.track('Task Deleted', {
+      taskId: taskId,
+    });
   };
 
   // Handle toggling task completion status
@@ -61,9 +73,13 @@ const TodoApp = () => {
         task.id === taskId ? { ...task, completed: !task.completed } : task
       )
     );
+
+    // Track the event
+    analytics.track('Task Status Toggled', {
+      taskId: taskId,
+    });
   };
 
- 
   return (
     <div>
       <h1>Todo App</h1>
@@ -101,6 +117,6 @@ const TodoApp = () => {
       </ul>
     </div>
   );
-        };
+};
 
 export default TodoApp;
