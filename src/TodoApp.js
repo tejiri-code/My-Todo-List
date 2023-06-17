@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Analytics } from '@vercel/analytics';
 import ReactDOM from 'react-dom';
+import { Analytics } from '@vercel/analytics';
 import "./styles.css";
 
 const TodoApp = () => {
@@ -65,47 +65,44 @@ const TodoApp = () => {
   };
 
   return (
-    <div>
-      <h1>Todo App</h1>
-      <hr></hr>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Task Title"
-          value={taskTitle}
-          onChange={handleTitleChange}
-        />
-        <input
-          type="text"
-          placeholder="Task Description"
-          value={taskDescription}
-          onChange={handleDescriptionChange}
-        />
-        <button type="submit">Add Task</button>
-      </form>
+    <Analytics id="prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U">
+      <div>
+        <h1>Todo App</h1>
+        <hr></hr>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Task Title"
+            value={taskTitle}
+            onChange={handleTitleChange}
+          />
+          <input
+            type="text"
+            placeholder="Task Description"
+            value={taskDescription}
+            onChange={handleDescriptionChange}
+          />
+          <button type="submit">Add Task</button>
+        </form>
 
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => handleToggleStatus(task.id)}
-            />
-            <span className={task.completed ? "completed" : ""}>
-              {task.title} - {task.description}
-            </span>
-            <button onClick={() => handleDelete(task.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.id}>
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => handleToggleStatus(task.id)}
+              />
+              <span className={task.completed ? "completed" : ""}>
+                {task.title} - {task.description}
+              </span>
+              <button onClick={() => handleDelete(task.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Analytics>
   );
 };
 
-ReactDOM.render(
-  <Analytics id="prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U">
-    <TodoApp />
-  </Analytics>,
-  document.getElementById("root")
-);
+export default TodoApp;
