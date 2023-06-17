@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-
+import { Analytics } from '@vercel/analytics/react';
 import ReactDOM from 'react-dom';
 
 import "./styles.css";
+
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
   const [taskTitle, setTaskTitle] = useState("");
@@ -64,6 +65,7 @@ const TodoApp = () => {
     );
   };
 
+  export default function RootLayout({ children }) {
   return (
     <div>
       <h1>Todo App</h1>
@@ -101,6 +103,7 @@ const TodoApp = () => {
       </ul>
     </div>
   );
+        };
 };
 
 export default TodoApp;
