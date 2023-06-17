@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from 'react-dom';
-import { AnalyticsProvider, useAnalytics } from '@vercel/analytics';
+import ReactDOM from "react-dom";
+import { AnalyticsProvider } from "@vercel/analytics";
 import "./styles.css";
 
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const analytics = useAnalytics();
 
   // Load tasks from LocalStorage on initial render
   useEffect(() => {
@@ -66,8 +65,10 @@ const TodoApp = () => {
   };
 
   useEffect(() => {
-    analytics.page();
-  }, [analytics]);
+    if (window.analytics) {
+      window.analytics.page();
+    }
+  }, []);
 
   return (
     <AnalyticsProvider id="prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U">
