@@ -4,7 +4,7 @@ import { Analytics } from '@vercel/analytics';
 import ReactDOM from 'react-dom';
 
 import "./styles.css";
-const analytics = new Analytics('YOUR_VERCEL_PROJECT_ID');
+const analytics = new Analytics('prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U');
 
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
@@ -69,7 +69,7 @@ const TodoApp = () => {
 
  
   return (
-    <Analytics id="YOUR_VERCEL_PROJECT_ID">
+    <Analytics id="prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U">
     <div>
       <h1>Todo App</h1>
       <hr></hr>
