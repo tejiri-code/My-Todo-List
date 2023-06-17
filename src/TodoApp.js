@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { AnalyticsProvider } from '@vercel/edge-functions-ui/client';
+import { AnalyticsProvider } from "@vercel/analytics";
 import "./styles.css";
 
 const TodoApp = () => {
