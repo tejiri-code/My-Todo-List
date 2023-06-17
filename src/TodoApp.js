@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Analytics } from '@vercel/analytics';
-
 import ReactDOM from 'react-dom';
-
 import "./styles.css";
-const analytics = new Analytics('prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U');
 
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
@@ -67,9 +64,7 @@ const TodoApp = () => {
     );
   };
 
- 
   return (
-    <Analytics id="prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U">
     <div>
       <h1>Todo App</h1>
       <hr></hr>
@@ -105,8 +100,12 @@ const TodoApp = () => {
         ))}
       </ul>
     </div>
-    </Analytics>
   );
-        };
+};
 
-export default TodoApp;
+ReactDOM.render(
+  <Analytics id="prj_TSbDEb4IEGOlFJc2YuUMfgpqr59U">
+    <TodoApp />
+  </Analytics>,
+  document.getElementById("root")
+);
