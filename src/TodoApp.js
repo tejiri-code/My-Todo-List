@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Analytics } from '@vercel/analytics';
+
 import ReactDOM from 'react-dom';
 
 import "./styles.css";
+const analytics = new Analytics('YOUR_VERCEL_PROJECT_ID');
 
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
@@ -66,6 +69,7 @@ const TodoApp = () => {
 
  
   return (
+    <Analytics id="YOUR_VERCEL_PROJECT_ID">
     <div>
       <h1>Todo App</h1>
       <hr></hr>
@@ -101,6 +105,7 @@ const TodoApp = () => {
         ))}
       </ul>
     </div>
+    </Analytics>
   );
         };
 
